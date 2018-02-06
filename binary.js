@@ -4,19 +4,14 @@ var testArrayGenap = [40, 18, 22, 32, 90, 10, 10, 22, 8]
 var testArrayGanjil = [3, 31, 89, 53, 53, 85, 77, 21, 55]
 
 function ownSort(arr) {
-  var temp = []
-  var minIndex = ""
-
   for(var i=0; i<arr.length; i++){
-    minIndex = i
-    for(var j=i+1; j<arr.length; j++){
-      if(arr[j] < arr[minIndex]){
-        minIndex = j
-      }
+    var temp = arr[i]
+    var j = i - 1
+    while(j >= 0 && arr[j] > temp){
+      arr[j+1] = arr[j]
+      j--
     }
-    temp = arr[i]
-    arr[i] = arr[minIndex]
-    arr[minIndex] = temp
+    arr[j+1] = temp
   }
 
   return arr
@@ -32,13 +27,11 @@ function binary_search (search, array) {
   // Your searching code
   for(var i=0; i<array.length; i++){
     if(array[i] === search){
-      return i;
+      return search + ": adalah index ke-"+ i
     }
   }
-  return -1;
+  return -1
 }
-
-
 
 // Driver code
 console.log(binary_search(8, arrayGenapSorted))
