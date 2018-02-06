@@ -17,15 +17,16 @@ function ownSort(arr) {
 }
 
 function binary_search (search, array) {
+  
   var mid=Math.ceil(array.length/2);
   if(array[mid-1]===search) return mid-1;
-  if(mid>1) {
-    if(search<array[mid]) {
+  if(array.length>1) {
+    if(search<array[mid-1]) {
       return binary_search(search,array.slice(0,mid));
-
     }
-    else if(search>array[mid]) {
-      return binary_search(search,array.slice(mid,array.length));
+    else if(search>array[mid-1]) {
+      mid++;
+      return mid+binary_search(search,array.slice(mid,array.length));
     }
   }
   return -1;
@@ -41,11 +42,13 @@ console.log(arrayGenapSorted);
 console.log(binary_search(8, arrayGenapSorted))
 console.log(binary_search(10, arrayGenapSorted))
 console.log(binary_search(33, arrayGenapSorted))
+console.log(binary_search(90, arrayGenapSorted))
 
 console.log(arrayGanjilSorted);
 console.log(binary_search(53, arrayGanjilSorted))
 console.log(binary_search(3, arrayGanjilSorted))
 console.log(binary_search(2, arrayGanjilSorted))
+console.log(binary_search(77, arrayGanjilSorted))
 
 module.exports = {
   binary_search
