@@ -5,12 +5,40 @@ var testArrayGanjil = [3, 31, 89, 53, 53, 85, 77, 21, 55]
 
 function ownSort(arr) {
   // Your sorting code
+  for (var i = 0; i < arr.length; i++) {
+    let value = arr[i]
+    for (var j = i - 1; j >= 0 && arr[j] > value; j--) {
+      arr[j + 1] = arr[j]
+    }
+    arr[j + 1] = value
+  }
   return arr
 }
 
-function binarySearch (search, array) {
+console.log(ownSort(testArrayGenap));
+console.log(ownSort(testArrayGanjil));
+
+function binary_search (search, array) {
   // Your searching code
-  return 0;
+  let first = 0
+  let last = array.length-1
+  let mid = Math.floor((first+last) / 2)
+
+  for (var i = 0; i <= array.length-1; i++) {
+    if (search === array[mid]) {
+      return mid
+    }
+    else if (search > array[mid]) {
+      first = mid +1
+      mid = Math.floor((first+last) / 2)
+    }
+    else if (search < array[mid]) {
+      last = mid
+      mid = Math.floor((first+ last) / 2)
+    }
+
+  }
+  return -1;
 }
 
 var arrayGenapSorted = ownSort(testArrayGenap)
