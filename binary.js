@@ -34,7 +34,6 @@ function binarySearch (search, array) {
 
 var arrayGenapSorted = ownSort(testArrayGenap)
 var arrayGanjilSorted = ownSort(testArrayGanjil)
-console.log(arrayGenapSorted);
 // Driver code
 //console.log(arrayGanjilSorted);
 console.log(binarySearch(8, arrayGenapSorted))
