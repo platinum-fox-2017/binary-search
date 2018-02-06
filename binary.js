@@ -20,13 +20,22 @@ function ownSort(arr) {
 
 function binarySearch(search, array) {
   // Your searching code
-  for (let i = 0; i < array.length; i++) {
-    if (search === array[i]) {
-      return i
-    }
+  let start = 0
+  let finish = array.length - 1
 
+  while (start <= finish) {
+    let mid = Math.floor((start + finish) / 2)
+    if (array[mid] === search) {
+      return array.indexOf(array[mid])
+    } else if (search > array[mid]) {
+      // code
+      start = mid + 1
+    } else if (search < array[mid]) {
+      // code
+      finish = mid - 1
+    }
   }
-  return -1;
+  return 0;
 }
 
 var arrayGenapSorted = ownSort(testArrayGenap)
@@ -34,13 +43,13 @@ console.log(arrayGenapSorted);
 var arrayGanjilSorted = ownSort(testArrayGanjil)
 console.log(arrayGanjilSorted);
 // Driver code
-console.log(binarySearch(8, arrayGenapSorted))
-console.log(binarySearch(10, arrayGenapSorted))
-console.log(binarySearch(33, arrayGenapSorted))
+// console.log(binarySearch(8, arrayGenapSorted))
+console.log(binarySearch(40, arrayGenapSorted))
+// console.log(binarySearch(33, arrayGenapSorted))
 
-console.log(binarySearch(53, arrayGanjilSorted))
-console.log(binarySearch(3, arrayGanjilSorted))
-console.log(binarySearch(2, arrayGanjilSorted))
+// console.log(binarySearch(53, arrayGanjilSorted))
+// console.log(binarySearch(3, arrayGanjilSorted))
+// console.log(binarySearch(2, arrayGanjilSorted))
 
 // module.exports = {
 //   binary_search
