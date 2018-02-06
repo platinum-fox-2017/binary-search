@@ -16,17 +16,16 @@ function ownSort(arr) {
   return arr;
 }
 
-function binary_search (search, array) {
+function binary_search (search, array,midPoint=0) {
   
   var mid=Math.ceil(array.length/2);
-  if(array[mid-1]===search) return mid-1;
+  if(array[mid-1]===search) return midPoint+mid-1;
   if(array.length>1) {
     if(search<array[mid-1]) {
       return binary_search(search,array.slice(0,mid));
     }
     else if(search>array[mid-1]) {
-      mid++;
-      return mid+binary_search(search,array.slice(mid,array.length));
+      return binary_search(search,array.slice(mid,array.length),mid+midPoint);
     }
   }
   return -1;
