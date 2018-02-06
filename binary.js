@@ -1,33 +1,26 @@
 'use strict'
 
-var testArrayGenap = [40, 18, 22, 32, 90, 10, 10, 22, 8]
+// var testArrayGenap = [40, 18, 22, 32, 90, 10, 10, 22, 8]
 var testArrayGanjil = [3, 31, 89, 53, 53, 85, 77, 21, 55]
 
 function ownSort(arr) {
-  
   let arrayNumb = arr
 
-  for(let i = 0;i < arrayNumb.length; i++){
-    let nilaiMinimum = arrayNumb[i]
-    let nilaiMinimumIndex = i
-    let count = 0
-    for(let j = i+1;j < arrayNumb.length;j++){
-      
-       if(arrayNumb[j] < nilaiMinimum){
-        nilaiMinimum = arrayNumb[j]
-        nilaiMinimumIndex = j
-        count++
-       } 
-    }
+  let length = arrayNumb.length
 
-    if(count > 0){
-      let tmp = arrayNumb[i]
-      arrayNumb[i] = arrayNumb[nilaiMinimumIndex]
-      arrayNumb[nilaiMinimumIndex] = tmp
+  for(let i = 0; i < length; i++){
+    for(let j = length - (length - i); j >= 0; j--){
+      
+      if(arrayNumb[j] > arrayNumb[j+1]){
+        let tmp = arrayNumb[j]
+        arrayNumb[j] = arrayNumb[j+1]
+        arrayNumb[j+1] = tmp
+        
+      }
     }
   }
-
   return arrayNumb
+
 }
 
 function binary_search (search, array, min, max) {
@@ -59,7 +52,7 @@ function binary_search (search, array, min, max) {
   
 }
 
-var arrayGenapSorted = ownSort(testArrayGenap)
+// var arrayGenapSorted = ownSort(testArrayGenap)
 var arrayGanjilSorted = ownSort(testArrayGanjil)
 
 // Driver code
