@@ -33,7 +33,6 @@ function binary_search (search, array, midPoint = 0) {
   // Your searching code
   if(array.length>=1){
     let midValue = Math.floor((array.length-1)/2);
-    // console.log("mid: "+midValue)
     if(search==array[midValue]){
       return midPoint+midValue;
     }
@@ -41,7 +40,7 @@ function binary_search (search, array, midPoint = 0) {
       return binary_search(search, array.slice(0,midValue));
     }
     else{
-      midPoint += array.slice(0,midValue).length;
+      midPoint += (array.slice(0,midValue).length+1);
       return binary_search(search, array.slice(midValue+1),midPoint);
     }
   }
@@ -51,7 +50,7 @@ function binary_search (search, array, midPoint = 0) {
 }
 
 // Solution 2
-function binary_search2 (search, array) {
+function binary_search (search, array) {
   // Your searching code
   let bottom = 0;
   let top = array.length-1;
@@ -89,8 +88,8 @@ console.log(binary_search(3, arrayGanjilSorted))
 console.log("jawaban :"+arrayGanjilSorted.indexOf(3));
 console.log(binary_search(2, arrayGanjilSorted))
 console.log("jawaban :"+arrayGanjilSorted.indexOf(2));
-console.log(binary_search(85, arrayGanjilSorted))
-console.log("jawaban :"+arrayGanjilSorted.indexOf(85));
+console.log(binary_search(89, arrayGanjilSorted))
+console.log("jawaban :"+arrayGanjilSorted.indexOf(89));
 
 module.exports = {
   binary_search
