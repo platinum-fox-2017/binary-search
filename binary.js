@@ -25,9 +25,20 @@ var arrayGanjilSorted = ownSort(testArrayGanjil)
 
 function binary_search (search, array) {
   // Your searching code
-  for(var i=0; i<array.length; i++){
-    if(array[i] === search){
-      return search + ": adalah index ke-"+ i
+  var min = 0
+  var mid = ""
+  var max = array.length -1
+
+  while(min <= max){
+    mid = Math.floor((min + max) / 2)
+    if(array[mid] === search){
+      return mid
+    }
+    else if(array[mid] < search){
+      min = mid + 1
+    }
+    else{
+      max = mid - 1
     }
   }
   return -1
