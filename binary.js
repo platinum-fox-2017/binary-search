@@ -29,19 +29,21 @@ function findMin(arr){
   return indexMin;
 }
 // Solution 1 - recursive
-function binary_search (search, array) {
+function binary_search (search, array, midPoint = 0) {
   // Your searching code
   if(array.length>=1){
     let midValue = Math.floor((array.length-1)/2);
-    debugger
+    // console.log("mid: "+midValue)
     if(search==array[midValue]){
-      return midValue;
+      return midPoint+midValue;
     }
     else if(search<array[midValue]){
       return binary_search(search, array.slice(0,midValue));
     }
-    else
-      return binary_search(search, array.slice(midValue+1));
+    else{
+      midPoint += array.slice(0,midValue).length;
+      return binary_search(search, array.slice(midValue+1),midPoint);
+    }
   }
   else {
     return -1;
@@ -49,7 +51,7 @@ function binary_search (search, array) {
 }
 
 // Solution 2
-function binary_search (search, array) {
+function binary_search2 (search, array) {
   // Your searching code
   let bottom = 0;
   let top = array.length-1;
@@ -87,6 +89,8 @@ console.log(binary_search(3, arrayGanjilSorted))
 console.log("jawaban :"+arrayGanjilSorted.indexOf(3));
 console.log(binary_search(2, arrayGanjilSorted))
 console.log("jawaban :"+arrayGanjilSorted.indexOf(2));
+console.log(binary_search(85, arrayGanjilSorted))
+console.log("jawaban :"+arrayGanjilSorted.indexOf(85));
 
 module.exports = {
   binary_search
