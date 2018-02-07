@@ -20,18 +20,16 @@ function binary_search (search, array) {
   let last = array.length-1
   let mid = Math.floor((first+last)/2)
 
-  while (first <= last){
     if(array[mid] === search){
       return mid
-    }else if (search > array[mid]){
-      first = mid+1
-      mid = Math.floor((first+last)/2)
-    }else if(search < array[mid]){
-      last = mid-1
-      mid = Math.floor((first+last)/2)
+    }else if (search < array[mid]){
+      return binary_search(search, array.slice(first,mid))
+    }else if(search > array[mid]){
+      return binary_search(search, array.slice(mid+1,last))
+    }else{
+      return -1
     }
-  }
-  return -1
+
 }
 
 var arrayGenapSorted = ownSort(testArrayGenap)
