@@ -29,23 +29,23 @@ function binary_search (search, array) {
       			}
     		}
   	}
-   else if(search>array[middle]){
+    else if(search>array[middle]){
      		for(var k=middle+1;k<array.length-1;k++){
        			if(search===array[k]){
          				tempArr.push(k);
        			}
-     			}
+     		}
    	}
-   else if(search===array[middle]){
-     			tempArr.push(middle);
+    else if(search===array[middle]){
+    		tempArr.push(middle);
   	}
 
    if(tempArr.length>0){
-    			return tempArr[0];
-   	}
+	 		return tempArr[0];
+   }
    else{
-      		return -1;
-    }
+   		return -1;
+   }
 }
 
 var arrayGenapSorted = ownSort(testArrayGenap)
