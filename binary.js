@@ -21,32 +21,32 @@ function ownSort(arr) {
   return arr
 }
 
-function binary_search (search, array) {
+function binary_search (search, arr) {
   // Your searching code
-  let mid = Math.floor(array.length/2);
-  
-  if(search >= array[mid]) {
-    console.log(search,'<<<<<<< abovemid');
-    for (let i = mid; i < array.length; i++) {
-      if(search === array[i]) {
-        return i
-      }
+  let start = 0
+  let end = arr.length - 1
+  let mid = Math.floor((arr.length-1)/2);
+
+  for (let i = 0; i < arr.length; i++) {
+    if(search === arr[mid]){
+      return mid
+    }
+    else if(search < arr[mid]) {
+      end = mid-1
+      mid = Math.floor((start + end)/2);
+    }
+    else if(search > arr[mid]) {
+      start = mid
+      mid = Math.floor((start + end)/2);
     }
   }
-  
-  if(search < array[mid]) {
-    console.log(search,'<<<<<<< undermid');
-    for (let j = 0; j < mid; j++) {
-      if(search === array[j]) {
-        return j
-      }      
-    }
-  }
-  return -1;
+  return 'ngga ada'
 }
 
 var arrayGenapSorted = ownSort(testArrayGenap)
+console.log(arrayGenapSorted);
 var arrayGanjilSorted = ownSort(testArrayGanjil)
+console.log(arrayGanjilSorted);
 
 // Driver code
 console.log(binary_search(8, arrayGenapSorted))
