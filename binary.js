@@ -21,22 +21,20 @@ function binary_search (search, array) {
   // Your searching code
   let start = 0;
   let end = array.length-1;
-  let mid = Math.floor(end/2);
+  let mid = Math.floor(start+end/2);
 
-  for(let i=0; i<array.length; i++){
-    if(search === array[mid]){
-      return mid;
-    }
-    else if(search > array[mid]){
-      start = mid+1;
-      mid = Math.floor((start+end)/2);
-    }
-    else if(search < array[mid]){
-      end = mid;
-      mid = Math.floor((start+end)/2)
-    }
+  if(search === array[mid]){
+    return mid;
   }
-  return -1;
+  else if(array[mid] < search){
+    return binary_search(search, array.slice(mid+1, end))
+  }
+  else if(search < array[mid]){
+    return binary_search(search, array.slice(start, mid))
+  }
+  else{
+    return -1
+  }
 }
 
 var arrayGenapSorted = ownSort(testArrayGenap)
