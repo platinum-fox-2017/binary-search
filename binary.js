@@ -10,7 +10,7 @@ function ownSort(arr) {
         	var temp = arr[i];
         	for (var j = i - 1; j > -1 && arr[j] > temp; j--)
         		{
-           		arr[j + 1] = arr[j];
+           			arr[j + 1] = arr[j];
         		}
         	 	arr[j + 1] = temp;
       	}
@@ -30,7 +30,7 @@ function binary_search (search, array) {
      			{
       			if(search===array[h])
       				{
-        				tempArr.push(h);
+        					tempArr.push(h);
       				}
     			}
   		}
@@ -40,7 +40,7 @@ function binary_search (search, array) {
      			{
        			if(search===array[k])
        				{
-         				tempArr.push(k);
+         					tempArr.push(k);
        				}
      			}
    		}
