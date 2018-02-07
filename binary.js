@@ -30,15 +30,16 @@ function binary_search (search, array, min, max) {
 
 
   if(maximum < minimum && array[cutMiddle] !== search){
-    return false
+    return -1
   }
 
   if(array[cutMiddle] === search){
-    return true
+    return cutMiddle
   } else{
     
     if(array[cutMiddle] < search){
       minimum = cutMiddle + 1
+
       return binary_search(search,array,minimum,maximum)
     } 
     
@@ -47,9 +48,6 @@ function binary_search (search, array, min, max) {
       return binary_search(search,array,minimum,maximum)
     } 
   }
-  
-  
-  
 }
 
 // var arrayGenapSorted = ownSort(testArrayGenap)
