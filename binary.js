@@ -24,23 +24,20 @@ function ownSort(arr) {
 function binary_search (search, arr) {
   // Your searching code
   let start = 0
-  let end = arr.length - 1
-  let mid = Math.floor((arr.length-1)/2);
+  let end = arr.length
+  let mid = Math.floor((start + end)/2);
 
-  for (let i = 0; i < arr.length; i++) {
-    if(search === arr[mid]){
-      return mid
-    }
-    else if(search < arr[mid]) {
-      end = mid-1
-      mid = Math.floor((start + end)/2);
-    }
-    else if(search > arr[mid]) {
-      start = mid
-      mid = Math.floor((start + end)/2);
-    }
+  if(search === arr[mid]) {
+    return mid
+  } else if(search < arr[mid]) {
+    end = mid
+    return binary_search(search, arr.slice(start, end))
+  } else if(search > arr[mid]) {
+    start = mid+1
+    return binary_search(search, arr.slice(start, end))
+  } else {
+    return 'not found'
   }
-  return 'ngga ada'
 }
 
 var arrayGenapSorted = ownSort(testArrayGenap)
